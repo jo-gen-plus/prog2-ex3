@@ -12,43 +12,31 @@ import java.util.Scanner; // 標準入力読み込みの際に利用したクラ
  */
 public class ExMain {
     public static void main(String[] args) {
-        /* ファイルのパスは、プロジェクトのトップディレクトリを基準とした相対パスで記述。
-            .javaファイルを置いてるディレクトリ基準ではないことに注意。 */
-        String filename = "./src/main/jp/ac/uryukyu/ie/e165715/map.txt";
-        List<String> strings = new ArrayList<>(); // ファイルから読み込んだ文字列を保存するためのリスト。
-        Scanner scanner;
+        Labyrinth labyrinth = new labyrinth();
 
-        /* 想定している例外が起きる箇所では、予め例外に対応した処理を記述する。
-            try{ 例外が起きる箇所 }
-            catch(想定してる例外){例外処理}
-            finally{例外の有無にかかわらず、最終的に実行させたい処理}
-         */
-        try {
-            scanner = new Scanner(new File(filename));
-            while (scanner.hasNextLine()) {
-                String line = scanner.nextLine();
-                strings.add(line);
-            }
-            scanner.close();
-        } catch (FileNotFoundException e) {
-            System.err.println(e.getMessage());
-            System.exit(1); //終了ステータス。ここでは取り敢えず0(=正常)以外にした。
+
+
+        String input;
+        labyrinth.printf();
+        System.out.println("上方向に進むキー：w");
+        System.out.println("下方向に進むキー：s");
+        System.out.println("右方向に進むキー：d");
+        System.out.println("左方向に進むキー：a");
+        for (i=0;i<10;i++) {
+            System.out.println("進む方向を入力してください：");
+            Scanner in = new Scanner(System.in);
+            input = in.nextLine();
+
+            Player player = new player(input);
+            player.move();
+            labyrinth.printf();
+            
         }
 
-        // リストをそのまま出力してみる
-        System.out.println("リストをそのまま出力してみる");
-        System.out.println(strings);
 
-        // 要素毎に出力してみる
-        System.out.println("\n\n要素毎に出力してみる");
-        for(String str: strings){
-            System.out.println(str);
-        }
 
-        // 行番号付けてみる
-        System.out.println("\n\n行番号付けてみる");
-        for(int i=0; i<strings.size(); i++){
-            System.out.printf("%d行目: %s\n", i, strings.get(i));
-        }
+        System.out.println(input);
+
+
     }
 }
