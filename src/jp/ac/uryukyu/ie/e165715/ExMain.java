@@ -30,7 +30,7 @@ public class ExMain {
             Player player = new player(input);
             player.move();
             labyrinth.printf();
-            
+
         }
 
 
