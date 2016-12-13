@@ -16,8 +16,8 @@ import java.util.Scanner; // 標準入力読み込みの際に利用したクラ
  */
 public class Labyrinth {
     List<String> labyrinth = new ArrayList<>();
-    String filename = "./src/main/jp/ac/uryukyu/ie/e165715/map.txt";
-    public Labyrinth(String[] args) {
+    String filename = "./src/jp/ac/uryukyu/ie/e165715/map.txt";
+    public Labyrinth() {
         Scanner scanner;
         try {
             scanner = new Scanner(new File(filename));
@@ -37,5 +37,5 @@ public class Labyrinth {
         }
     }
     public List<String> getLabyrinth(){return labyrinth;}
-    public void setLabylinth(List<String> labyrinth){this.labyrinth = labyrinth;}
+    public void setLabyrinth(List<String> labyrinth){this.labyrinth = labyrinth;}
 }

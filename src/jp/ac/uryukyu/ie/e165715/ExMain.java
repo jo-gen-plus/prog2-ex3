@@ -12,7 +12,8 @@ import java.util.Scanner; // 標準入力読み込みの際に利用したクラ
  */
 public class ExMain {
     public static void main(String[] args) {
-        Labyrinth labyrinth = new labyrinth();
+
+        Labyrinth labyrinth = new Labyrinth();
 
 
 
@@ -27,7 +28,7 @@ public class ExMain {
             Scanner in = new Scanner(System.in);
             input = in.nextLine();
 
-            Player player = new player(input);
+            Player player = new Player(input);
             player.move();
             labyrinth.printf();
 
