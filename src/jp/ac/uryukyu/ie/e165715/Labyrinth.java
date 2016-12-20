@@ -15,8 +15,8 @@ import java.util.Scanner; // 標準入力読み込みの際に利用したクラ
  * ・ファイルオープン時に例外が発生する可能性があるため、例外に対応するコード例も含む。
  */
 public class Labyrinth {
-    List<String> labyrinth = new ArrayList<>();
-    String filename = "./src/jp/ac/uryukyu/ie/e165715/map.txt";
+    private List<String> labyrinth = new ArrayList<>();
+    private String filename = "./src/jp/ac/uryukyu/ie/e165715/map.txt";
     public Labyrinth() {
         Scanner scanner;
         try {
@@ -31,11 +31,15 @@ public class Labyrinth {
             System.exit(1); //終了ステータス。ここでは取り敢えず0(=正常)以外にした。
         }
     }
+    public void change(List<String> a){
+        this.labyrinth = a;
+    }
     public void printf(){
         for(String str: labyrinth){
             System.out.println(str);
         }
     }
     public List<String> getLabyrinth(){return labyrinth;}
-    public void setLabyrinth(List<String> labyrinth){this.labyrinth = labyrinth;}
+    public void setLabylinth(List<String> labyrinth){this.labyrinth = labyrinth;}
+
 }
